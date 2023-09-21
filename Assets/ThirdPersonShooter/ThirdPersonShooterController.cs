@@ -19,6 +19,10 @@ public class ThirdPersonShooterController : MonoBehaviour
     private Transform debugTransform;
     [SerializeField]
     private Transform spawnBulletPosition;
+    [SerializeField]
+    private Transform vfxBlue;
+    [SerializeField]
+    private Transform vfxYellow;
 
     private StarterAssetsInputs starterAssetsInputs;
     private ThirdPersonController thirdPersonController;
@@ -69,7 +73,13 @@ public class ThirdPersonShooterController : MonoBehaviour
             Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
             if(hitTransform != null)
             {
-
+                if(hitTransform.GetComponent<Enemy>() != null) {
+                    Instantiate(vfxYellow, raycastHit.point, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(vfxBlue, raycastHit.point, Quaternion.identity);
+                }
             }
             starterAssetsInputs.shoot = false;
         }

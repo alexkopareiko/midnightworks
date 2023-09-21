@@ -2169,6 +2169,8 @@ MonoBehaviour:
     m_Bits: 1
   debugTransform: {fileID: 1395363123}
   spawnBulletPosition: {fileID: 878564577}
+  vfxBlue: {fileID: 444372, guid: e0eacf370ce60c34797e9870e2796623, type: 3}
+  vfxYellow: {fileID: 403952, guid: 173e9f9ea86cd934baeb1c7fb3f27073, type: 3}
 --- !u!114 &376986231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7670,7 +7672,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b911390c5825014e8377183a7837d3f, type: 2}
+  - {fileID: 2100000, guid: 1ee00051305bdb049b02c923f047227d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8672,7 +8674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1395363120
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8690,7 +8692,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

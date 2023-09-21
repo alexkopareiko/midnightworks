@@ -85,7 +85,7 @@ namespace StarterAssets
 		
 		public void ShootInput(bool newSprintState)
 		{
-			aim = newSprintState;
+			shoot = newSprintState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)
