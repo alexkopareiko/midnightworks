@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -11,17 +12,18 @@ public class EnemyController : MonoBehaviour
 
     private Transform target;
     private NavMeshAgent agent;
-    private Animator animator;
+    private Stats stats;
 
     private void Start()
     {
         target = GameManager.instance.GetPlayer().transform;
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        stats = GetComponent<Enemy>();
     }
 
     private void Update()
     {
+        if (stats.isDead) return;
         float distance = Vector3.Distance(target.position, transform.position);
 
         if(distance <= lookRadius)
@@ -33,7 +35,6 @@ public class EnemyController : MonoBehaviour
                 FaceTarget();
             }
         }
-        animator.SetFloat("MotionSpeed", agent.velocity.magnitude);
     }
 
     private void FaceTarget()

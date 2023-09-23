@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Enemy : Stats
 {
@@ -11,20 +10,24 @@ public class Enemy : Stats
     private float aim;
     private float damage;
     private Rigidbody m_rb;
+    private EnemyAnimationController enemyAnimationController;
 
     private void Awake()
     {
         m_rb = GetComponent<Rigidbody>();
+        enemyAnimationController = GetComponent<EnemyAnimationController>();
     }
 
-    private void Start()
+    public override void HealthReduce(float value)
     {
-
+        base.HealthReduce(value);
+        enemyAnimationController.GetHit();
     }
 
-    
-    private void Update()
+    public override void Die()
     {
+        base.Die();
+        enemyAnimationController.Die();
     }
 
 }

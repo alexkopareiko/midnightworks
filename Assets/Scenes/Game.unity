@@ -1831,6 +1831,7 @@ MonoBehaviour:
   spawnBulletPosition: {fileID: 878564577}
   vfxBlue: {fileID: 444372, guid: e0eacf370ce60c34797e9870e2796623, type: 3}
   vfxYellow: {fileID: 403952, guid: 173e9f9ea86cd934baeb1c7fb3f27073, type: 3}
+  damage: 1
 --- !u!114 &376986231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10903,7 +10904,7 @@ NavMeshAgent:
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -10911,6 +10912,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3950438027021928363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950438027021928352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bd79a8559c2e24cbf3b48435966fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8963504229258457330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10919,6 +10932,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 475908616332770371, guid: 6f11acfa5eb6fd3409b42fc4c468bd8d,
+        type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 475908616332770371, guid: 6f11acfa5eb6fd3409b42fc4c468bd8d,
         type: 3}
       propertyPath: moveSpeed
@@ -11109,4 +11127,8 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3950438027021928360}
+    - targetCorrespondingSourceObject: {fileID: 7025433177329159170, guid: 6f11acfa5eb6fd3409b42fc4c468bd8d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3950438027021928363}
   m_SourcePrefab: {fileID: 100100000, guid: 6f11acfa5eb6fd3409b42fc4c468bd8d, type: 3}

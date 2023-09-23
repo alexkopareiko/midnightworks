@@ -23,6 +23,8 @@ public class ThirdPersonShooterController : MonoBehaviour
     private Transform vfxBlue;
     [SerializeField]
     private Transform vfxYellow;
+    [SerializeField]
+    private float damage = 1f;
 
     private StarterAssetsInputs starterAssetsInputs;
     private ThirdPersonController thirdPersonController;
@@ -81,6 +83,7 @@ public class ThirdPersonShooterController : MonoBehaviour
             {
                 if(hitTransform.GetComponent<Enemy>() != null) {
                     Instantiate(vfxYellow, raycastHit.point, Quaternion.identity);
+                    hitTransform.GetComponent<Enemy>().HealthReduce(damage);
                 }
                 else
                 {

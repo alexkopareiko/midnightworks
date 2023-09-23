@@ -7,18 +7,20 @@ public class Stats : MonoBehaviour
     private float health;
     [SerializeField]
     private float maxHealth = 10f;
-    private bool isDead = false;
+
+    public bool isDead = false;
 
 
-    private void Awake()
+    private void Start()
     {
         health = maxHealth;
     }
 
     public virtual void HealthReduce(float value)
     {
-        Debug.Log("Health reduce");
+        if (health <= 0) return;
         health -= value;
+        Debug.Log("Health  " + health);
         if (health <= 0) Die();
     }
 
@@ -26,5 +28,7 @@ public class Stats : MonoBehaviour
     {
         Debug.Log("Dead");
         isDead = true;
+
+        Destroy(this.gameObject, 3f);
     }
 }
