@@ -30,8 +30,11 @@ public class Enemy : Stats
         base.Die();
         enemyAnimationController.Die();
 
+        GameManager.instance.MinusEnemy();
+
         Destroy(this.gameObject, 3f);
 
     }
+
 
 }

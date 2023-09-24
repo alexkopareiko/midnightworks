@@ -16,11 +16,17 @@ public class Player : Stats
     {
         base.HealthReduce(value);
         playerAnimationController.GetHit();
+
+        float fillAmount = health / maxHealth;
+        UIManager.instance.SetPlayerHealthBar(fillAmount);
     }
 
     public override void Die()
     {
         base.Die();
         playerAnimationController.Die();
+
+        GameManager.instance.Die();
+
     }
 }

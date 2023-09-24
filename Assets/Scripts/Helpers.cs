@@ -147,26 +147,65 @@ public static class Helpers
 
     #endregion
 
-    #region COINS
+    #region WIN_COUNT
 
-    public static int GetPPScore(int initialValue = 0)
+    public static int GetPPWinCount(int initialValue = 0)
     {
         int _val = initialValue;
-        string key = Constants.PP.SCORE;
+        string key = Constants.PP.WIN_COUNT;
         if (SaveSystem.HasKey(key))
         {
             _val = SaveSystem.GetInt(key);
         }
         else
         {
-            SetPPScore(_val);
+            SetPPWinCount(_val);
         }
         return _val;
     }
 
-    public static void SetPPScore(int value)
+    public static void SetPPWinCount(int value)
     {
-        SaveSystem.SetInt(Constants.PP.SCORE, value);
+        SaveSystem.SetInt(Constants.PP.WIN_COUNT, value);
+        SaveSystem.SaveToDisk();
+    }
+
+    public static void AddPPWinCount(int value = 1)
+    {
+        int _val = GetPPWinCount() + 1;
+        SetPPWinCount(_val);
+        SaveSystem.SaveToDisk();
+    }
+
+    #endregion
+
+    #region LOSE_COUNT
+
+    public static int GetPPLoseCount(int initialValue = 0)
+    {
+        int _val = initialValue;
+        string key = Constants.PP.LOSE_COUNT;
+        if (SaveSystem.HasKey(key))
+        {
+            _val = SaveSystem.GetInt(key);
+        }
+        else
+        {
+            SetPPLoseCount(_val);
+        }
+        return _val;
+    }
+
+    public static void SetPPLoseCount(int value)
+    {
+        SaveSystem.SetInt(Constants.PP.LOSE_COUNT, value);
+        SaveSystem.SaveToDisk();
+    }
+    
+    public static void AddPPLoseCount(int value = 1)
+    {
+        int _val = GetPPLoseCount() + 1;
+        SetPPLoseCount(_val);
         SaveSystem.SaveToDisk();
     }
 

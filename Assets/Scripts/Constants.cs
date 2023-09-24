@@ -12,6 +12,8 @@ public static class Constants
         public const string USE_ANALYTICS = "USE_ANALYTICS";
         public const string PRIVACY_POLICY_AGREE = "PRIVACY_POLICY_AGREE";
         public const string TUTORIAL_SHOWED = "TUTORIAL_SHOWED";
+        public const string WIN_COUNT = "WIN_COUNT";
+        public const string LOSE_COUNT = "LOSE_COUNT";
     }
 
     // CONGIG

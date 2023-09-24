@@ -19,14 +19,11 @@ public class Stats : MonoBehaviour
     {
         if (isDead) return;
         health -= value;
-        Debug.Log("Health  " + health);
         if (health <= 0) Die();
     }
 
     public virtual void Die()
     {
-        Debug.Log("Dead");
         isDead = true;
-
     }
 }
