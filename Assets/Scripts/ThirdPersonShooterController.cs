@@ -5,6 +5,12 @@ using Cinemachine;
 using StarterAssets;
 using UnityEngine.InputSystem;
 
+
+[RequireComponent(typeof(StarterAssetsInputs))]
+[RequireComponent(typeof(ThirdPersonController))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Stats))]
+
 public class ThirdPersonShooterController : MonoBehaviour
 {
     [SerializeField]
@@ -29,16 +35,20 @@ public class ThirdPersonShooterController : MonoBehaviour
     private StarterAssetsInputs starterAssetsInputs;
     private ThirdPersonController thirdPersonController;
     private Animator animator;
+    private Stats stats;
 
-    private void Awake()
+
+    private void Start()
     {
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
         thirdPersonController = GetComponent<ThirdPersonController>();
         animator = GetComponent<Animator>();
+        stats = GetComponent<Player>();
     }
 
     private void Update()
     {
+        if (stats.isDead) return;
         Vector3 mouseWorldPosition = Vector3.zero;
 
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2, Screen.height / 2);

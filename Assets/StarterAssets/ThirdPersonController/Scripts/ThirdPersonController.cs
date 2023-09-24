@@ -98,6 +98,9 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
+        private Stats stats;
+
+
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
 #endif
@@ -152,11 +155,17 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            stats = GetComponent<Player>();
+
         }
 
         private void Update()
         {
+            if (stats.isDead) return;
+
             _hasAnimator = TryGetComponent(out _animator);
+
 
             JumpAndGravity();
             GroundedCheck();

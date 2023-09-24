@@ -1,22 +1,19 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyAnimationController))]
 public class Enemy : Stats
 {
-
-    [SerializeField]
-    private float moveSpeed = 1f;
-    private float aim;
-    private float damage;
-    private Rigidbody m_rb;
     private EnemyAnimationController enemyAnimationController;
 
-    private void Awake()
+    public override void Start()
     {
-        m_rb = GetComponent<Rigidbody>();
+        base.Start();
         enemyAnimationController = GetComponent<EnemyAnimationController>();
     }
+
 
     public override void HealthReduce(float value)
     {
@@ -28,6 +25,9 @@ public class Enemy : Stats
     {
         base.Die();
         enemyAnimationController.Die();
+
+        Destroy(this.gameObject, 3f);
+
     }
 
 }

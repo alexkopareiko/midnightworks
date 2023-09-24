@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
@@ -5,6 +6,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyController : MonoBehaviour
 {
     [SerializeField]
@@ -24,6 +27,7 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         if (stats.isDead) return;
+        if (target == null) return;
         float distance = Vector3.Distance(target.position, transform.position);
 
         if(distance <= lookRadius)
