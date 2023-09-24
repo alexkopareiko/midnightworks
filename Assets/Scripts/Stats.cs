@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    private float health;
+    protected float health;
     [SerializeField]
-    private float maxHealth = 10f;
+    protected float maxHealth = 10f;
 
     public bool isDead = false;
 

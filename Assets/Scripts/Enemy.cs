@@ -2,11 +2,14 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(EnemyAnimationController))]
 public class Enemy : Stats
 {
     private EnemyAnimationController enemyAnimationController;
+    [SerializeField]
+    private Image healthBar;
 
     public override void Start()
     {
@@ -19,6 +22,7 @@ public class Enemy : Stats
     {
         base.HealthReduce(value);
         enemyAnimationController.GetHit();
+        healthBar.fillAmount = health / maxHealth;
     }
 
     public override void Die()
